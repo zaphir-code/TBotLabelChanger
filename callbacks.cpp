@@ -5,7 +5,8 @@
 #include <cstring>
 #include <cstdint>
 
-#include "NoTasBotLabel.hpp"
+#include "tbot_label_changer_config.hpp"
+
 #include "TasBot_v34-18_offsets.hpp"
 
 extern HANDLE tBotHandle;
