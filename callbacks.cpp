@@ -1,6 +1,5 @@
 #include <gdhm.h>
 #include <format>
-#include <array>
 
 #include <cstring>
 #include <cstdint>
