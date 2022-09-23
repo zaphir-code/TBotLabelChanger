@@ -1,6 +1,6 @@
 #include <Windows.h>
 #include <string>
-#include <gdhm.h>
+#include <gdhm.hpp>
 #include "NoTasBot_config.hpp"
 
 #include "callbacks.hpp"
