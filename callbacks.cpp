@@ -18,22 +18,50 @@ static void on_release()
 	memcpy_s(reinterpret_cast<void*>(reinterpret_cast<std::uintptr_t>(tBotHandle) + TASBOT_LABEL_2), 17, buffer, 17);
 }
 
-void _main_callback()
+void _footer()
 {
+	char buffer[17];
+
 	gdhm::gui::label("");
 
 	gdhm::gui::label("Change name of the");
 	gdhm::gui::label("TASBOT label: ");
 	gdhm::gui::input_text(
-		gdhm_new_id(), 
+		gdhm::new_id,
 		buffer,
-		17,
-		on_release);
-}
+		sizeof(buffer),
+		[buffer](void) -> void 
+		{
+			memcpy_s(reinterpret_cast<void*>(
+				reinterpret_cast<std::uintptr_t>(tBotHandle) + TASBOT_LABEL_1), 
+				17, 
+				reinterpret_cast<const void*>(buffer), 
+				16);
+			memcpy_s(reinterpret_cast<void*>(reinterpret_cast<std::uintptr_t>(tBotHandle) + TASBOT_LABEL_2), 
+				17,
+				reinterpret_cast<const void*>(buffer),
+				16);
+		}
+		);
+	gdhm::gui::label("");
 
-void _footer()
-{
-	gdhm::gui::label("By GD Ephir");
+
+	gdhm::control reset_button_control("Reset");
+	gdhm::gui::button(
+		gdhm::new_id,
+		&reset_button_control,
+		[](void) -> void 
+		{
+			std::memset(
+				reinterpret_cast<char*>(reinterpret_cast<std::uintptr_t>(tBotHandle) + TASBOT_LABEL_1), 
+				0, 
+				16);
+			std::memset (
+				reinterpret_cast<char*>(reinterpret_cast<std::uintptr_t>(tBotHandle) + TASBOT_LABEL_2), 
+				0, 
+				16);
+		}
+		);
 }
 
 void _header()
