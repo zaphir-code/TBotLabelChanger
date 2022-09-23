@@ -1,0 +1,6 @@
+#ifndef TBOT_LABEL_CHANGER_CONFIG_HPP
+#define TBOT_LABEL_CHANGER_CONFIG_HPP
+
+constexpr auto NO_TASBOT_LABEL_VERSION = "0.1";
+
+#endif
