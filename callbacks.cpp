@@ -13,12 +13,6 @@ extern HANDLE tBotHandle;
 
 char buffer[17];
 
-static void on_release()
-{
-	memcpy_s(reinterpret_cast<void*>(reinterpret_cast<std::uintptr_t>(tBotHandle) + TASBOT_LABEL_1), 17, buffer, 17);
-	memcpy_s(reinterpret_cast<void*>(reinterpret_cast<std::uintptr_t>(tBotHandle) + TASBOT_LABEL_2), 17, buffer, 17);
-}
-
 void _footer()
 {
 	char buffer[17];
