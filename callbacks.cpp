@@ -11,8 +11,6 @@
 
 extern HANDLE tBotHandle;
 
-char buffer[17];
-
 void _footer()
 {
 	char buffer[17];
